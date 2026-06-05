@@ -71,7 +71,7 @@ const InventoryOverview = ({ externalSearch, chartOnly }: { externalSearch?: str
       const ga = getInventoryGroupKey(a.description ?? a.scaffold_type);
       const gb = getInventoryGroupKey(b.description ?? b.scaffold_type);
       if (ga !== gb) return ga.localeCompare(gb);
-      return (a.description ?? "").localeCompare(b.description ?? "");
+      return compareInventoryPartNumber(a, b);
     });
   }, [dedupedScaffolds, search]);
 
@@ -167,7 +167,7 @@ const InventoryOverview = ({ externalSearch, chartOnly }: { externalSearch?: str
       const ga = getInventoryGroupKey(a.description ?? a.scaffold_type);
       const gb = getInventoryGroupKey(b.description ?? b.scaffold_type);
       if (ga !== gb) return ga.localeCompare(gb);
-      return (a.description ?? "").localeCompare(b.description ?? "");
+      return compareInventoryPartNumber(a, b);
     });
 
     let lastGroup = "";
